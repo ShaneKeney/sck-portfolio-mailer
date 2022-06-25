@@ -4,11 +4,19 @@
   "description": "Email mailing API for Shane Keney development portfolio",
   "scripts": {
     "postinstall": "tsc && tsc-alias",
-    "deploy:prod": "node --harmony build/server/app.js"
+    "deploy:prod": "node --harmony build/server/app.js",
+    "reinstall": "rm -rf node_modules package-lock.json yarn.lock && yarn",
+    "run:server": "nodemon --exec ts-node src/server/app.ts",
+    "dev:transpile": "tsc && tsc-alias",
+    "test": "jest --coverage=false --runInBand --detectOpenHandles",
+    "test:watch": "jest --watch --coverage=false --detectOpenHandles",
+    "test:coverage": "jest --runInBand",
+    "jest:clear": "jest --clearCache"
   },
   "_moduleAliases": {
     "@services": "src/server/services",
-    "@common": "src/server/common"
+    "@common": "src/server/common",
+    "@routes": "src/server/routes"
   },
   "author": "Shane Keney",
   "license": "ISC",

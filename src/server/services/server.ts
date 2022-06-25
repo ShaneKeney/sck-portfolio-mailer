@@ -6,6 +6,7 @@ import cors from "cors"
 import dotenv from "dotenv"
 import path from "path"
 import helmet from "helmet"
+import routes from "@routes/index"
 
 async function createServer() {
   /**
@@ -49,7 +50,7 @@ async function createServer() {
   // Otherwise req.secure and req.protocol not picked up appropriately
   app.enable('trust proxy')
 
-  // // Add some redirect logic to ensure that https is always used in production, staging, development environment
+  // Add some redirect logic to ensure that https is always used in production, staging, development environment
   app.use((req, res, next) => {
     // if NODE_ENV is 'localhost' don't redirect to https, only do so for our deployed server environments
     if (!['development', 'staging', 'production'].includes(process.env.NODE_ENV as string)) return next()
@@ -62,7 +63,7 @@ async function createServer() {
   })
 
   // Bootstrap middleware routes
-  // routes(app)
+  routes(app)
 
   return app
 }

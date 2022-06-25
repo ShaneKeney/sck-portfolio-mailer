@@ -1,5 +1,5 @@
 import 'module-alias/register';
-import createServer, { startServer } from "./services/server";
+import createServer, { startServer } from "@services/server";
 
 // Wrapper to leveraage async/await
 const app = async () => {
