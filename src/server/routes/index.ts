@@ -3,6 +3,7 @@ import express, { NextFunction, Request, Response } from 'express'
 const routes = (app: express.Application) => {
 
   app.post('/api/contact', (req, res) => {
+    // TODO: Send email to personal account based on req body
     console.log(req.body)
     return "hello"
   })
