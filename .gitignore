@@ -1,0 +1,10 @@
+node_modules
+coverage
+logs
+.nyc_output
+.env
+*.log
+
+# Ignore build file.  This will be generated via postinstall script by Heroku
+# It will also be checked via build script by circleci
+build

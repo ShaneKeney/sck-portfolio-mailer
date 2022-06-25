@@ -1,0 +1,28 @@
+{
+  "name": "sck-portfolio-mailer",
+  "version": "1.0.0",
+  "description": "Email mailing API for Shane Keney development portfolio",
+  "scripts": {
+    "postinstall": "tsc && tsc-alias",
+    "deploy:prod": "node --harmony build/server/app.js"
+  },
+  "_moduleAliases": {
+    "@services": "src/server/services",
+    "@common": "src/server/common"
+  },
+  "author": "Shane Keney",
+  "license": "ISC",
+  "devDependencies": {
+    "dotenv": "^16.0.1",
+    "jest": "^28.1.1",
+    "jest-module-name-mapper": "^0.1.5",
+    "nodemon": "^2.0.18",
+    "supertest": "^6.2.3",
+    "ts-jest": "^28.0.5",
+    "tsc-alias": "^1.6.11",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "helmet": "^5.1.0"
+  }
+}
