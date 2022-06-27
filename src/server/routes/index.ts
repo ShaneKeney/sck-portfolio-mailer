@@ -16,7 +16,7 @@ const routes = (app: express.Application) => {
         requester: req.body.name,
         message: req.body.message,
         requesterEmail: req.body.email,
-        mobile: req.body.mobile
+        mobile: req.body.mobile || "N/A"
       }
     }
 
@@ -25,10 +25,13 @@ const routes = (app: express.Application) => {
       .then(() => {
         return res.status(201).json({ message: 'Email sent successfully' })
       })
-      .catch(error => res.status(500).json({ 
-        errorCode: 'INTERNAL_SERVER_ERROR', 
-        message:  'Error sending email to Shane Keney.  Please try again later.'
-      }))
+      .catch(error =>{ 
+        console.log(error)
+        return res.status(500).json({ 
+          errorCode: 'INTERNAL_SERVER_ERROR', 
+          message:  'Error sending email to Shane Keney.  Please try again later.'
+        })
+      })
   })
 
   /**
