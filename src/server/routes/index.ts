@@ -15,6 +15,19 @@ const routes = (app: express.Application) => {
       subject: 'Sending with SendGrid is Fun',
       text: 'and easy to do anywhere, even with Node.js',
       html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+      "sub": {
+        ":test": [
+          "Hello World!"
+        ]
+      },
+      "filters": {
+        "templates": {
+          "settings": {
+            "enable": 1,
+            "template_id": "d-127d36b1c1e5415ab71893efe57fefa0q"
+          }
+        }
+      }
     }
 
     sgMail
