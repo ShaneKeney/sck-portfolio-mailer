@@ -7,7 +7,6 @@ const routes = (app: express.Application) => {
 
   app.post('/api/contact', async (req, res) => {
     // Send email to personal account based on req body
-    console.log(req.body)
     const email = {
       // Don't get confused...
       // This is basically my personal email address for both as the API is handling sending on my behalf
