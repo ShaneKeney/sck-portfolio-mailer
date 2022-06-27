@@ -9,8 +9,10 @@ const routes = (app: express.Application) => {
     // Send email to personal account based on req body
     console.log(req.body)
     const email = {
+      // Don't get confused...
+      // This is basically my personal email address for both as the API is handling sending on my behalf
       to: process.env.CONTACT_EMAIL as string,
-      from: req.body.email,
+      from: process.env.CONTACT_EMAIL as string,
       templateId: 'd-127d36b1c1e5415ab71893efe57fefa0',
       dynamic_template_data: {
         requester: req.body.name,
