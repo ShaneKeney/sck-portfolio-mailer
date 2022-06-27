@@ -1,6 +1,5 @@
 import express, { NextFunction, Request, Response } from 'express'
 import sgMail from "@sendgrid/mail"
-import { json } from 'body-parser'
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY || '')
 
