@@ -26,7 +26,7 @@ const routes = (app: express.Application) => {
         return res.status(201).json({ message: 'Email sent successfully' })
       })
       .catch(error =>{ 
-        console.log(error)
+        console.log(JSON.stringify(error))
         return res.status(500).json({ 
           errorCode: 'INTERNAL_SERVER_ERROR', 
           message:  'Error sending email to Shane Keney.  Please try again later.'
