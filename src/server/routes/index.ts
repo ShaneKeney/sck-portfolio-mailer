@@ -7,23 +7,17 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY || '')
 const routes = (app: express.Application) => {
 
   app.post('/api/contact', async (req, res) => {
-    // TODO: Send email to personal account based on req body
+    // Send email to personal account based on req body
     console.log(req.body)
     const email = {
-      to: process.env.CONTACT_EMAIL,
+      to: process.env.CONTACT_EMAIL as string,
       from: req.body.email,
-      "sub": {
-        ":test": [
-          "Hello World!"
-        ]
-      },
-      "filters": {
-        "templates": {
-          "settings": {
-            "enable": 1,
-            "template_id": "d-127d36b1c1e5415ab71893efe57fefa0q"
-          }
-        }
+      templateId: 'd-127d36b1c1e5415ab71893efe57fefa0',
+      dynamic_template_data: {
+        requester: req.body.name,
+        message: req.body.message,
+        requesterEmail: req.body.email,
+        mobile: req.body.mobile
       }
     }
 
