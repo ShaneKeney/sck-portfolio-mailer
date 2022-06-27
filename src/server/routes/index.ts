@@ -12,9 +12,6 @@ const routes = (app: express.Application) => {
     const email = {
       to: process.env.CONTACT_EMAIL,
       from: req.body.email,
-      subject: 'Sending with SendGrid is Fun',
-      text: 'and easy to do anywhere, even with Node.js',
-      html: '<strong>and easy to do anywhere, even with Node.js</strong>',
       "sub": {
         ":test": [
           "Hello World!"
